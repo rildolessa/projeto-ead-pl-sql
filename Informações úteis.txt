@@ -1,0 +1,15 @@
+Melhoria a serem aplicadas em um projeto real - (prazo maior) 
+	- Criei tabelas com owner "rildolessa", pois no banco tinham tabelas com os nomes pedidos no desafio, dessa forma tive que criar esse usuário novo no banco
+	- Criar tabelas: região, estado e fazer seus relacionamentos como a estrutura dos correios (colocar com fk nas respectivas tabelas envolvidas (região/estado/município...)
+	- Nomeclaturas, prefixos e sufixos (coloquei os nomes de objetos de forma a ser mais fácil identificados de acordo o desafio proposta). Entedo que essas são adequados de acordo com o projeto, idiomas e/ou padrões da empresa.
+	- Iniciei um outro projeto usando os types relacionados as entidades envolvidas
+	- Nas procedures de update do crud fiz da forma mais trivial, passando o dado antigo e o novo, embora fosse melhor procurar o dados antigo via select e dar update pelo id da tabela em questão. Pois caso tenha dois valores iguais nas tabela iria alterar duas linhas. E principalmente para essas duas operações utilizamos a chave da tabela, que no nosso caso são sequences e assim tornaria as operações dml mais rápidas se fosse utilizadas as chaves da tabela.
+	- Tabela de logs de erro para exception
+	- Nos métodos(procedures de update dos cruds), não implementei as regras de alterar todos os campos caso esses campos vá null, se não houver essa lógicar de testar o que tá preenchido ou não pode ter bugs ao persistir, outra regra é caso o dado a ser alterado não seja encontrado pra ser dado o update ele não loga na tabela de erros, pois não estou testando o sucesso da executação do update. Só atendi as premissas báscias do desafio.
+	- Sobre os dados passados para as operações de update,delete e select estou passando uma string de nome só para melhor analisarem a minha prova mas sei que nessas operações a nossa tela "frontend" e internamente seria passado a chave primaria respecitva a strign passada pelo front.
+	- Não usei a passagem de parametros por referência (boas práticas) p_nome_disciplina => 'valor'
+	- Não criei sinônimos para os indíces 
+	- A partir do crud de curso já utilizei nas operações a chave da tabela (maneira elegante)
+	- Não criei o crud completo de matrícula pois pro cenário do desafio bastava fazer uma matricula.
+	- No crud de aluno tem um trecho de código comentado sobre a criação de uma exception (deixei comentado pra mostrar que teria outras formas de fazer que não fosse em um if/else). Não acho legal deixar códigos comentados caso não esteja sendo usado, pra isso que serve um controle de versão (git)
+	
